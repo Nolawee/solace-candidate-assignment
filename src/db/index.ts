@@ -4,16 +4,24 @@ import postgres from "postgres";
 const setup = () => {
   if (!process.env.DATABASE_URL) {
     console.error("DATABASE_URL is not set");
-    return {
+    const mockDb: any = {
       select: () => ({
-        from: () => [],
-      }),
-      insert: () => ({
-        values: () => ({
-          returning: () => Promise.resolve([]),
+        from: () => ({
+          where: () => Promise.resolve([]),
         }),
       }),
+      insert: () => ({
+        values: (_values: any) => ({
+          returning: (_columns?: any) => Promise.resolve([]),
+        }),
+      }),
+      execute: (_query: any) => Promise.resolve([]),
+      transaction: async (callback: (tx: any) => Promise<any>) => {
+        // Pass the same mock object as the transaction context
+        return callback(mockDb);
+      },
     };
+    return mockDb;
   }
 
   // for query purposes
