@@ -14,7 +14,7 @@ interface AdvocateCardProps {
 
 export default function AdvocateCard({ advocate }: AdvocateCardProps) {
   return (
-    <article className="grid grid-cols-[180px_1fr_300px] gap-8 p-8 border border-gray-300 rounded-lg bg-white shadow-sm items-center lg:grid-cols-[180px_1fr_300px] max-lg:flex max-lg:flex-col max-lg:items-start max-lg:gap-0">
+    <article className="grid grid-cols-[180px_1fr_300px] gap-8 p-8 border border-gray-300 rounded-lg bg-white shadow-sm items-center lg:grid-cols-[180px_1fr_300px] max-lg:flex max-lg:flex-col max-lg:items-center max-lg:gap-0">
       <div className="flex justify-center items-start max-lg:mr-5 max-lg:mb-6">
         <svg className="w-[120px] h-[120px] rounded-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
           <title>Profile</title>
@@ -26,7 +26,7 @@ export default function AdvocateCard({ advocate }: AdvocateCardProps) {
         </svg>
       </div>
       
-      <div className="flex flex-col gap-2 max-lg:overflow-hidden">
+      <div className="flex flex-col gap-2 max-lg:items-center">
         <h2 className="text-[32px] font-semibold m-0 mb-4 text-[#333] max-lg:my-[30px_0_16px_0]">{advocate.firstName} {advocate.lastName}</h2>
         
         <div className="flex gap-6 mb-2 max-lg:flex-wrap max-lg:mt-2">
